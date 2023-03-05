@@ -17,7 +17,6 @@ public class ChestHandler : MonoBehaviour
         gameManager= FindObjectOfType<GameManager>();
         thisImage = GetComponent<Image>();
         thisChest= GetComponent<Button>();
-        Debug.Log(thisChest.name);
         chestValue = Random.Range(.01f, 1f);
     }
 
@@ -25,7 +24,7 @@ public class ChestHandler : MonoBehaviour
     {
         thisImage.sprite = openSprite;
         thisChest.interactable = false;
-        gameManager.lastGameHandler.AddToPrize(chestValue);
+        //gameManager.lastGameHandler.AddToPrize(chestValue);
     }
     
 }
