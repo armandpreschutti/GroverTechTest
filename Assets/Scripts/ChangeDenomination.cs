@@ -21,18 +21,40 @@ public class ChangeDenomination : MonoBehaviour
 
     public void IncreaseDenomination()
     {
-        if(currentDenomination < maxBet)
+        if(currentDenomination == .25f)
         {
-            currentDenomination += denominationIncrement;
+            currentDenomination = .5f;
             UpdateDenominationText();
-        }        
+        }
+        else if (currentDenomination == .5f)
+        {
+            currentDenomination = 1f;
+            UpdateDenominationText();
+        }
+        else if (currentDenomination == 1f)
+        {
+            currentDenomination = 5f;
+            UpdateDenominationText();
+        }
+        
+
     }
 
     public void DecreaseDenomination()
     {
-        if (currentDenomination > minBet)
+        if (currentDenomination == .5f)
         {
-            currentDenomination -= denominationIncrement;
+            currentDenomination = .25f;
+            UpdateDenominationText();
+        }
+        else if (currentDenomination == 1f)
+        {
+            currentDenomination = .5f;
+            UpdateDenominationText();
+        }
+        else if (currentDenomination == 5f)
+        {
+            currentDenomination = 1f;
             UpdateDenominationText();
         }
     }

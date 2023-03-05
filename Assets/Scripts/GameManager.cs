@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         buttonDisabler.DisableTreasureButtons();
+        buttonDisabler.chestButtons.SetActive(false);
     }
     public void PlayGame()
     {
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
         balanceHandler.UpdateBalanceText();
         lastGameHandler.ResetLastPrize();
         buttonDisabler.EnableTreasureButtons();
+        buttonDisabler.chestButtons.SetActive(true);
     }
 
 }

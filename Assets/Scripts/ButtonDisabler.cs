@@ -9,6 +9,7 @@ public class ButtonDisabler : MonoBehaviour
     public Button playButton;
     public Button increaseButton;
     public Button decreaseButton;
+    public GameObject chestButtons;
     public Button treasure1;
     public Button treasure2;
     public Button treasure3;
