@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public ButtonDisabler buttonDisabler;
     public BalanceHandler balanceHandler;
     public LastGameHandler lastGameHandler;
+    
+    
 
     private void Start()
     {

@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,11 @@ public class LastGameHandler : MonoBehaviour
     public void ResetLastPrize()
     {
         lastGamePrize = 0;
+        lastGamePrizeText.text = lastGamePrize.ToString("C");
+    }
+    public void AddToPrize(float amount)
+    {
+        lastGamePrize+= amount;
         lastGamePrizeText.text = lastGamePrize.ToString("C");
     }
 }
