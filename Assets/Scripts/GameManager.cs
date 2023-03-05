@@ -8,16 +8,20 @@ public class GameManager : MonoBehaviour
 {
     public ChangeDenomination changeDenomination;
     public ButtonDisabler buttonDisabler;
+    public BalanceHandler balanceHandler;
+    public LastGameHandler lastGameHandler;
 
-    public Button playButton;
-    public float CurrentBet;
-
+    private void Start()
+    {
+        buttonDisabler.DisableTreasureButtons();
+    }
     public void PlayGame()
     {
-        
+        buttonDisabler.DisableDenominationButtons();
+        balanceHandler.DecreaseBalance(changeDenomination.currentDenomination);
+        balanceHandler.UpdateBalanceText();
+        lastGameHandler.ResetLastPrize();
+        buttonDisabler.EnableTreasureButtons();
     }
-    public void Tester()
-    {
-        Debug.Log(CurrentBet);
-    }
+
 }

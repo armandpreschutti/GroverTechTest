@@ -11,7 +11,7 @@ public class ChangeDenomination : MonoBehaviour
     public float denominationIncrement = 0.25f;
     public float maxBet = 1.00f;
     public float minBet = .25f;    
-    private float currentDenomination = 0.25f;
+    public float currentDenomination = 0.25f;
 
     public void Start()
     {
@@ -40,7 +40,6 @@ public class ChangeDenomination : MonoBehaviour
     private void UpdateDenominationText()
     {
         currentDenominationText.text = currentDenomination.ToString("C");
-        gameManager.CurrentBet = currentDenomination;
-        gameManager.Tester();
+
     }
 }
