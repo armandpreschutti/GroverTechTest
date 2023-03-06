@@ -24,7 +24,7 @@ public class ChestHandler : MonoBehaviour
     {
         thisImage.sprite = openSprite;
         thisChest.interactable = false;
-        //gameManager.lastGameHandler.AddToPrize(chestValue);
+        
     }
     
 }
