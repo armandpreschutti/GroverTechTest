@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MultiplierHandler : MonoBehaviour
 {
+    public GameManager gameManager;
+
     public int[] multiplierOdds= new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3};
     public int[] commonMultiplierValues = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9};
     public int[] uncommonMultiplierValues = new int[] {12, 16, 24, 32, 48, 64};
@@ -14,6 +16,11 @@ public class MultiplierHandler : MonoBehaviour
     public int commonIndex;
     public int uncommonIndex;
     public int rareIndex;
+
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
     public void PickMultiplier()
     {

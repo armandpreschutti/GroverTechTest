@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ChangeDenomination : MonoBehaviour
 {
+
     public Text currentDenominationText;
     public GameManager gameManager;
 
@@ -15,6 +16,7 @@ public class ChangeDenomination : MonoBehaviour
 
     public void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         currentDenomination = .25f;
         UpdateDenominationText();
     }

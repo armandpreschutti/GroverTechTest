@@ -6,8 +6,15 @@ using UnityEngine.UI;
 
 public class LastGameHandler : MonoBehaviour
 {
+    public GameManager gameManager;
+
     public float lastGamePrize;
     public Text lastGamePrizeText;
+
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
     public void ResetLastPrize()
     {

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class ButtonDisabler : MonoBehaviour
 {
+    public GameManager gameManager;
+
     public Button playButton;
     public Button increaseButton;
     public Button decreaseButton;
@@ -19,6 +21,11 @@ public class ButtonDisabler : MonoBehaviour
     public Button treasure7;
     public Button treasure8;
     public Button treasure9;
+
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
     public void DisableDenominationButtons()
     {

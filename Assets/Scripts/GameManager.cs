@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
         {
             for (int i = 0; i < remaingChests.Length; i++)
             {
+                
                 currentChest = Mathf.Round(Random.Range(0, currentPrize) * 20f) / 20f; 
                 currentPrize = currentPrize - currentChest;
                 remaingChests[i] = currentChest;

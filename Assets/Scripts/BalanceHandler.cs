@@ -5,11 +5,14 @@ using UnityEngine.UI;
 
 public class BalanceHandler : MonoBehaviour
 {
+    public GameManager gameManager;
+
     public Text balanceText;
     public float currentBalance;
 
     private void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         currentBalance = 10.0f;
         UpdateBalanceText();
     }
