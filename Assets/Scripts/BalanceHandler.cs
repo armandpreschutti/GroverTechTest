@@ -9,11 +9,10 @@ public class BalanceHandler : MonoBehaviour
 
     public Text balanceText;
     public float currentBalance;
-
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
-        currentBalance = 10.0f;
+
         UpdateBalanceText();
     }
 

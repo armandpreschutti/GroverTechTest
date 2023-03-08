@@ -29,16 +29,16 @@ public class ButtonDisabler : MonoBehaviour
 
     public void DisableDenominationButtons()
     {
-        playButton.interactable= false;
         increaseButton.interactable= false;
         decreaseButton.interactable= false; 
     }
+
     public void EnableDenominationButtons()
     {
-        playButton.interactable= true;
         increaseButton.interactable= true;
         decreaseButton.interactable= true;
     }
+
     public void DisableTreasureButtons()
     {
         treasure1.interactable= false;
@@ -51,6 +51,7 @@ public class ButtonDisabler : MonoBehaviour
         treasure8.interactable= false;
         treasure9.interactable= false;
     }
+
     public void EnableTreasureButtons()
     {
         treasure1.interactable = true;
@@ -62,5 +63,13 @@ public class ButtonDisabler : MonoBehaviour
         treasure7.interactable= true;
         treasure8.interactable= true;
         treasure9.interactable= true;
+    }
+    public void DisablePlayBUtton()
+    {
+        playButton.interactable = false;
+    }
+    public void EnablePlayBUtton()
+    {
+        playButton.interactable = true;
     }
 }

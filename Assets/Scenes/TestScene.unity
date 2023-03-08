@@ -351,10 +351,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  thisChest: {fileID: 0}
+  thisButton: {fileID: 0}
   thisImage: {fileID: 0}
   closedSprite: {fileID: 1168833113, guid: 8dbaddfc97cf4ae4faae536dc23895ce, type: 3}
   openSprite: {fileID: -629466369, guid: 8dbaddfc97cf4ae4faae536dc23895ce, type: 3}
+  thisAmount: {fileID: 0}
   chestValue: 0
 --- !u!1 &67984365
 GameObject:
@@ -504,10 +505,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  thisChest: {fileID: 0}
+  thisButton: {fileID: 0}
   thisImage: {fileID: 0}
   closedSprite: {fileID: 1168833113, guid: 8dbaddfc97cf4ae4faae536dc23895ce, type: 3}
   openSprite: {fileID: -629466369, guid: 8dbaddfc97cf4ae4faae536dc23895ce, type: 3}
+  thisAmount: {fileID: 0}
   chestValue: 0
 --- !u!1 &118792091
 GameObject:
@@ -737,10 +739,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  thisChest: {fileID: 0}
+  thisButton: {fileID: 0}
   thisImage: {fileID: 0}
   closedSprite: {fileID: 1168833113, guid: 8dbaddfc97cf4ae4faae536dc23895ce, type: 3}
   openSprite: {fileID: -629466369, guid: 8dbaddfc97cf4ae4faae536dc23895ce, type: 3}
+  thisAmount: {fileID: 0}
   chestValue: 0
 --- !u!1 &182542861
 GameObject:
@@ -1137,10 +1140,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  thisChest: {fileID: 0}
+  thisButton: {fileID: 0}
   thisImage: {fileID: 0}
   closedSprite: {fileID: 1168833113, guid: 8dbaddfc97cf4ae4faae536dc23895ce, type: 3}
   openSprite: {fileID: -629466369, guid: 8dbaddfc97cf4ae4faae536dc23895ce, type: 3}
+  thisAmount: {fileID: 0}
   chestValue: 0
 --- !u!1 &506678037
 GameObject:
@@ -1370,10 +1374,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  thisChest: {fileID: 0}
+  thisButton: {fileID: 0}
   thisImage: {fileID: 0}
   closedSprite: {fileID: 1168833113, guid: 8dbaddfc97cf4ae4faae536dc23895ce, type: 3}
   openSprite: {fileID: -629466369, guid: 8dbaddfc97cf4ae4faae536dc23895ce, type: 3}
+  thisAmount: {fileID: 0}
   chestValue: 0
 --- !u!1 &519420028
 GameObject:
@@ -1687,10 +1692,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  thisChest: {fileID: 0}
+  thisButton: {fileID: 0}
   thisImage: {fileID: 0}
   closedSprite: {fileID: 1168833113, guid: 8dbaddfc97cf4ae4faae536dc23895ce, type: 3}
   openSprite: {fileID: -629466369, guid: 8dbaddfc97cf4ae4faae536dc23895ce, type: 3}
+  thisAmount: {fileID: 0}
   chestValue: 0
 --- !u!1 &563720306
 GameObject:
@@ -2317,17 +2323,12 @@ MonoBehaviour:
   balanceHandler: {fileID: 1149972331}
   lastGameHandler: {fileID: 1149972332}
   multiplierHandler: {fileID: 1149972333}
-  currentChest: 0
-  currentPrize: 0
-  remaingChests:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  chestNumber: 0
+  chestAmount: 0
+  totalPrize: 0
+  remainingPrize: 0
+  remainingChests: 8
+  chests: []
 --- !u!114 &1149972328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2373,6 +2374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c460c7f64f39884295463ad661f5b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   playButton: {fileID: 1915706927}
   increaseButton: {fileID: 665488966}
   decreaseButton: {fileID: 1334755984}
@@ -2398,6 +2400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8c84899786eb74e93c0c691458152d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   balanceText: {fileID: 556926308}
   currentBalance: 0
 --- !u!114 &1149972332
@@ -2412,6 +2415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a73561a2c96091449d2708fbcba0d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   lastGamePrize: 0
   lastGamePrizeText: {fileID: 631863825}
 --- !u!114 &1149972333
@@ -2426,6 +2430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98960ab58d5acb41971aef2603e8c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   multiplierOdds: 0000000000000000000000000000000000000000000000000000000000000000000000000000000001000000010000000100000001000000010000000100000002000000020000000200000003000000
   commonMultiplierValues: 010000000200000003000000040000000500000006000000070000000800000009000000
   uncommonMultiplierValues: 0c0000001000000018000000200000003000000040000000
@@ -2949,10 +2954,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  thisChest: {fileID: 0}
+  thisButton: {fileID: 0}
   thisImage: {fileID: 0}
   closedSprite: {fileID: 1168833113, guid: 8dbaddfc97cf4ae4faae536dc23895ce, type: 3}
   openSprite: {fileID: -629466369, guid: 8dbaddfc97cf4ae4faae536dc23895ce, type: 3}
+  thisAmount: {fileID: 0}
   chestValue: 0
 --- !u!1 &1372835097
 GameObject:
@@ -3825,10 +3831,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  thisChest: {fileID: 0}
+  thisButton: {fileID: 0}
   thisImage: {fileID: 0}
   closedSprite: {fileID: 1168833113, guid: 8dbaddfc97cf4ae4faae536dc23895ce, type: 3}
   openSprite: {fileID: -629466369, guid: 8dbaddfc97cf4ae4faae536dc23895ce, type: 3}
+  thisAmount: {fileID: 0}
   chestValue: 0
 --- !u!1 &1952911416
 GameObject:
@@ -4058,10 +4065,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  thisChest: {fileID: 0}
+  thisButton: {fileID: 0}
   thisImage: {fileID: 0}
   closedSprite: {fileID: 1168833113, guid: 8dbaddfc97cf4ae4faae536dc23895ce, type: 3}
   openSprite: {fileID: -629466369, guid: 8dbaddfc97cf4ae4faae536dc23895ce, type: 3}
+  thisAmount: {fileID: 0}
   chestValue: 0
 --- !u!1 &2067931769
 GameObject:
