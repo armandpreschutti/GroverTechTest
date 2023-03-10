@@ -43,11 +43,17 @@ public class ChestHandler : MonoBehaviour
         {
             // Do a shake animation if chest is a "pooper".
             transform.DOPunchPosition(new Vector3(40, 0, 0), .5f, 10, 1f);
+
+            // Play upbeat SFX.
+            gameManager.audioHandler.PlayChestCloseSFX();
         }
         else
         {
             // Do a pop animation if chest is not a "pooper".
             transform.DOPunchScale(Vector3.one * 1.5f, .25f);
+
+            // Play downbeat SFX.
+            gameManager.audioHandler.PlayChestOpenSFX();
         }
     }
 

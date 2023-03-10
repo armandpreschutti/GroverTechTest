@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public BalanceHandler balanceHandler;
     public LastGameHandler lastGameHandler;
     public MultiplierHandler multiplierHandler;
+    public AudioHandler audioHandler;
     public ChestHandler[] chestsToSet;
 
     public int chestNumber;
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
         buttonDisabler= GetComponent<ButtonDisabler>();
         lastGameHandler= GetComponent<LastGameHandler>();
         multiplierHandler= GetComponent<MultiplierHandler>();
-        
+        audioHandler= GetComponent<AudioHandler>();
     }
 
     /// <summary>
@@ -152,7 +153,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Called whenever a chest button in pressed, this function take the amount of the selected chest and distributes it to the player.
     /// </summary>
-    /// <param name="chestText"></param>
+    /// <param name="chestText">The chest text to be changed</param>
     public void DistributeChestPrize(Text chestText)
     {
         // Check to see if there are any empty chest remaining and that the chest is not a "pooper".
