@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     public void PlayGame()
     {
         // Checks to see if there is enough money to play. If not, the game will not start.
-        if(balanceHandler.currentBalance <= 0)
+        if(balanceHandler.currentBalance <= 0 || changeDenomination.currentDenomination > balanceHandler.currentBalance)
         {
             return;
         }
