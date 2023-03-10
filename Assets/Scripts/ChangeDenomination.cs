@@ -64,6 +64,5 @@ public class ChangeDenomination : MonoBehaviour
     private void UpdateDenominationText()
     {
         currentDenominationText.text = currentDenomination.ToString("C");
-
     }
 }

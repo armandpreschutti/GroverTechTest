@@ -64,11 +64,11 @@ public class ButtonDisabler : MonoBehaviour
         treasure8.interactable= true;
         treasure9.interactable= true;
     }
-    public void DisablePlayBUtton()
+    public void DisablePlayButton()
     {
         playButton.interactable = false;
     }
-    public void EnablePlayBUtton()
+    public void EnablePlayButton()
     {
         playButton.interactable = true;
     }
