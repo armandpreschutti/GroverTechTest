@@ -7,10 +7,11 @@ public class AudioHandler : MonoBehaviour
 {
     public AudioClip openChestSFX;
     public AudioClip closeChestSFX;
+    public AudioClip startGameSFX;
     public AudioSource audioSource;
 
     /// <summary>
-    /// When called, this function plays an upbeat SFX
+    /// When called, this function plays an upbeat SFX.
     /// </summary>
     public void PlayChestOpenSFX()
     {
@@ -19,7 +20,7 @@ public class AudioHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// When called, this function plays an downbeat SFX
+    /// When called, this function plays an downbeat SFX.
     /// </summary>
     public void PlayChestCloseSFX()
     {
@@ -27,4 +28,12 @@ public class AudioHandler : MonoBehaviour
         audioSource.Play();
     }
     
+    /// <summary>
+    /// when called, this function plays the start game SFX.
+    /// </summary>
+    public void PlayStartGameSFX()
+    {
+        audioSource.clip = startGameSFX;
+        audioSource.Play();
+    }
 }

@@ -2254,7 +2254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   balanceText: {fileID: 556926308}
-  currentBalance: 10
+  currentBalance: 4
 --- !u!114 &1149972332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2307,6 +2307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openChestSFX: {fileID: 8300000, guid: 4b39eceb777d58049a1163ecbbad08bb, type: 3}
   closeChestSFX: {fileID: 8300000, guid: 43ef36fa98bc40c4f80710d65ea3595c, type: 3}
+  startGameSFX: {fileID: 8300000, guid: 10edf157e52f01e4b83ff9a5107d507d, type: 3}
   audioSource: {fileID: 1895897146}
 --- !u!1 &1164479981
 GameObject:
@@ -3443,7 +3444,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 10edf157e52f01e4b83ff9a5107d507d, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

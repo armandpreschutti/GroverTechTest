@@ -44,8 +44,13 @@ public class GameManager : MonoBehaviour
         // Checks to see if there is enough money to play. If not, the game will not start.
         if(balanceHandler.currentBalance <= 0 || changeDenomination.currentDenomination > balanceHandler.currentBalance)
         {
+            // Play downbeat SFX.
+            audioHandler.PlayChestCloseSFX();
             return;
         }
+        
+        // Play the start game SFX.
+        audioHandler.PlayStartGameSFX();
 
         // Resets the pooper from the previous round.
         isPooper = false;
