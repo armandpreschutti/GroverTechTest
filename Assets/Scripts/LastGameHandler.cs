@@ -11,6 +11,9 @@ public class LastGameHandler : MonoBehaviour
     public float lastGamePrize;
     public Text lastGamePrizeText;
 
+    /// <summary>
+    /// On start, this function sets all the needed components for gameplay to a variable.
+    /// </summary>
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();

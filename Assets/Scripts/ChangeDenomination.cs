@@ -6,21 +6,22 @@ using UnityEngine.UI;
 public class ChangeDenomination : MonoBehaviour
 {
 
-    public Text currentDenominationText;
-    public GameManager gameManager;
-
-    public float denominationIncrement = 0.25f;
-    public float maxBet = 1.00f;
-    public float minBet = .25f;    
+    public Text currentDenominationText;  
     public float currentDenomination = 0.25f;
 
+    /// <summary>
+    /// On start, this function makes the denomination .25 by default, then updates the denomination text to match.
+    /// </summary>
+    /// 
     public void Start()
-    {
-        gameManager = FindObjectOfType<GameManager>();
+    { 
         currentDenomination = .25f;
         UpdateDenominationText();
     }
 
+    /// <summary>
+    /// This function, when called, increaeses the denomination amount by a specific interval depending on the current denomination
+    /// </summary>
     public void IncreaseDenomination()
     {
         if(currentDenomination == .25f)
@@ -38,10 +39,11 @@ public class ChangeDenomination : MonoBehaviour
             currentDenomination = 5f;
             UpdateDenominationText();
         }
-        
-
     }
 
+    /// <summary>
+    /// This function, when called, decreases the denomination amount by a specific interval depending on the current denomination
+    /// </summary>
     public void DecreaseDenomination()
     {
         if (currentDenomination == .5f)
@@ -60,6 +62,10 @@ public class ChangeDenomination : MonoBehaviour
             UpdateDenominationText();
         }
     }
+
+    /// <summary>
+    /// This function, when called, updated the denomination text to the current denomination.
+    /// </summary>
 
     private void UpdateDenominationText()
     {

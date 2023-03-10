@@ -12,64 +12,109 @@ public class ButtonDisabler : MonoBehaviour
     public Button increaseButton;
     public Button decreaseButton;
     public GameObject chestButtons;
-    public Button treasure1;
-    public Button treasure2;
-    public Button treasure3;
-    public Button treasure4;
-    public Button treasure5;
-    public Button treasure6;
-    public Button treasure7;
-    public Button treasure8;
-    public Button treasure9;
+    public Button chestButton1;
+    public Button chestButton2;
+    public Button chestButton3;
+    public Button chestButton4;
+    public Button chestButton5;
+    public Button chestButton6;
+    public Button chestButton7;
+    public Button chestButton8;
+    public Button chestButton9;
 
+    /// <summary>
+    /// On start, this function sets all the needed components for gameplay to a variable.
+    /// </summary>
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
     }
 
+    /// <summary>
+    /// When called, this function disables both denomination buttons
+    /// </summary>
     public void DisableDenominationButtons()
     {
         increaseButton.interactable= false;
         decreaseButton.interactable= false; 
     }
 
+    /// <summary>
+    /// When called, this function enables both denomination buttons
+    /// </summary>
     public void EnableDenominationButtons()
     {
         increaseButton.interactable= true;
         decreaseButton.interactable= true;
     }
 
-    public void DisableTreasureButtons()
+    /// <summary>
+    /// When called, this function disables all chest buttons
+    /// </summary>
+
+    public void DisableChestButtons()
     {
-        treasure1.interactable= false;
-        treasure2.interactable= false;
-        treasure3.interactable= false;
-        treasure4.interactable= false;
-        treasure5.interactable= false;
-        treasure6.interactable= false;
-        treasure7.interactable= false;
-        treasure8.interactable= false;
-        treasure9.interactable= false;
+        chestButton1.interactable= false;
+        chestButton2.interactable= false;
+        chestButton3.interactable= false;
+        chestButton4.interactable= false;
+        chestButton5.interactable= false;
+        chestButton6.interactable= false;
+        chestButton7.interactable= false;
+        chestButton8.interactable= false;
+        chestButton9.interactable= false;
     }
 
-    public void EnableTreasureButtons()
+    /// <summary>
+    /// When called, this function enables all chest buttons
+    /// </summary>
+    public void EnableChestButtons()
     {
-        treasure1.interactable = true;
-        treasure2.interactable= true;
-        treasure3.interactable= true;
-        treasure4.interactable= true;
-        treasure5.interactable= true;
-        treasure6.interactable= true;
-        treasure7.interactable= true;
-        treasure8.interactable= true;
-        treasure9.interactable= true;
+        chestButton1.interactable = true;
+        chestButton2.interactable= true;
+        chestButton3.interactable= true;
+        chestButton4.interactable= true;
+        chestButton5.interactable= true;
+        chestButton6.interactable= true;
+        chestButton7.interactable= true;
+        chestButton8.interactable= true;
+        chestButton9.interactable= true;
     }
+
+    /// <summary>
+    /// When called, this function disables the play button
+    /// </summary>
     public void DisablePlayButton()
     {
         playButton.interactable = false;
     }
+
+    /// <summary>
+    /// When called, this function enables the play button
+    /// </summary>
     public void EnablePlayButton()
     {
         playButton.interactable = true;
+    }
+
+    /// <summary>
+    /// This function is called at the start of every round and sets all the buttons to the appropriate state.
+    /// </summary>
+    public void PlayGame()
+    {
+        chestButtons.SetActive(true);
+        DisableDenominationButtons();
+        DisablePlayButton();        
+        EnableChestButtons();
+    }
+
+    /// <summary>
+    /// This function is called at the endof every round and sets all the buttons to the appropriate state.
+    /// </summary>
+    public void EndGame()
+    {
+        EnableDenominationButtons();
+        EnablePlayButton();
+        DisableChestButtons();
     }
 }
