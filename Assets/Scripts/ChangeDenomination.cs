@@ -1,21 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class ChangeDenomination : MonoBehaviour
 {
-
-    public Text currentDenominationText;  
+    public bool useQuarter;
+    public bool useHalf;
+    public TextMeshPro currentDenominationText;  
     public float currentDenomination = 0.25f;
+    public int currentIndex;
+    public int[] denominations;
+
 
     /// <summary>
     /// On start, this function makes the denomination .25 by default, then updates the denomination text to match.
     /// </summary>
     /// 
     public void Start()
-    { 
-        currentDenomination = .25f;
+    {
+        currentDenomination = denominations[0];
         UpdateDenominationText();
     }
 
@@ -24,7 +28,17 @@ public class ChangeDenomination : MonoBehaviour
     /// </summary>
     public void IncreaseDenomination()
     {
-        if(currentDenomination == .25f)
+        if(currentIndex < denominations.Length - 1)
+        {
+            currentIndex += 1;
+            currentDenomination = denominations[currentIndex];
+            UpdateDenominationText();
+        }
+        else
+        {
+            return;
+        }
+        /*if(currentDenomination == .25f)
         {
             currentDenomination = .5f;
             UpdateDenominationText();
@@ -38,7 +52,7 @@ public class ChangeDenomination : MonoBehaviour
         {
             currentDenomination = 5f;
             UpdateDenominationText();
-        }
+        }*/
     }
 
     /// <summary>
@@ -46,7 +60,14 @@ public class ChangeDenomination : MonoBehaviour
     /// </summary>
     public void DecreaseDenomination()
     {
-        if (currentDenomination == .5f)
+        if(currentIndex > 0)
+        {
+            currentIndex -= 1;
+            currentDenomination = denominations[currentIndex];
+            UpdateDenominationText();
+        }
+       
+        /*if (currentDenomination == .5f)
         {
             currentDenomination = .25f;
             UpdateDenominationText();
@@ -60,7 +81,7 @@ public class ChangeDenomination : MonoBehaviour
         {
             currentDenomination = 1f;
             UpdateDenominationText();
-        }
+        }*/
     }
 
     /// <summary>

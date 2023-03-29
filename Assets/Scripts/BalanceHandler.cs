@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BalanceHandler : MonoBehaviour
 {
     public GameManager gameManager;
 
-    public Text balanceText;
+    public TextMeshPro balanceText;
     public float currentBalance;
 
     /// <summary>

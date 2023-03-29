@@ -8,19 +8,19 @@ public class ButtonDisabler : MonoBehaviour
 {
     public GameManager gameManager;
 
-    public Button playButton;
-    public Button increaseButton;
-    public Button decreaseButton;
+    public GameObject playButton;
+    public GameObject increaseButton;
+    public GameObject decreaseButton;
     public GameObject chestButtons;
-    public Button chestButton1;
-    public Button chestButton2;
-    public Button chestButton3;
-    public Button chestButton4;
-    public Button chestButton5;
-    public Button chestButton6;
-    public Button chestButton7;
-    public Button chestButton8;
-    public Button chestButton9;
+    public GameObject chestButton1;
+    public GameObject chestButton2;
+    public GameObject chestButton3;
+    public GameObject chestButton4;
+    public GameObject chestButton5;
+    public GameObject chestButton6;
+    public GameObject chestButton7;
+    public GameObject chestButton8;
+    public GameObject chestButton9;
 
     /// <summary>
     /// On start, this function sets all the needed components for gameplay to a variable.
@@ -35,8 +35,11 @@ public class ButtonDisabler : MonoBehaviour
     /// </summary>
     public void DisableDenominationButtons()
     {
-        increaseButton.interactable= false;
-        decreaseButton.interactable= false; 
+       /* increaseButton.interactable= false;
+        decreaseButton.interactable= false; */
+
+        increaseButton.SetActive(false);
+        decreaseButton.SetActive(false);
     }
 
     /// <summary>
@@ -44,8 +47,10 @@ public class ButtonDisabler : MonoBehaviour
     /// </summary>
     public void EnableDenominationButtons()
     {
-        increaseButton.interactable= true;
-        decreaseButton.interactable= true;
+       /* increaseButton.interactable= true;
+        decreaseButton.interactable= true;*/
+        increaseButton.SetActive(true); 
+        decreaseButton.SetActive(true);    
     }
 
     /// <summary>
@@ -54,7 +59,7 @@ public class ButtonDisabler : MonoBehaviour
 
     public void DisableChestButtons()
     {
-        chestButton1.interactable= false;
+        /*chestButton1.interactable= false;
         chestButton2.interactable= false;
         chestButton3.interactable= false;
         chestButton4.interactable= false;
@@ -62,7 +67,8 @@ public class ButtonDisabler : MonoBehaviour
         chestButton6.interactable= false;
         chestButton7.interactable= false;
         chestButton8.interactable= false;
-        chestButton9.interactable= false;
+        chestButton9.interactable= false;*/
+
     }
 
     /// <summary>
@@ -70,7 +76,7 @@ public class ButtonDisabler : MonoBehaviour
     /// </summary>
     public void EnableChestButtons()
     {
-        chestButton1.interactable = true;
+       /* chestButton1.interactable= true;
         chestButton2.interactable= true;
         chestButton3.interactable= true;
         chestButton4.interactable= true;
@@ -78,7 +84,7 @@ public class ButtonDisabler : MonoBehaviour
         chestButton6.interactable= true;
         chestButton7.interactable= true;
         chestButton8.interactable= true;
-        chestButton9.interactable= true;
+        chestButton9.interactable= true;*/
     }
 
     /// <summary>
@@ -86,7 +92,8 @@ public class ButtonDisabler : MonoBehaviour
     /// </summary>
     public void DisablePlayButton()
     {
-        playButton.interactable = false;
+       /* playButton.interactable = false;*/
+       playButton.SetActive(false);
     }
 
     /// <summary>
@@ -94,7 +101,7 @@ public class ButtonDisabler : MonoBehaviour
     /// </summary>
     public void EnablePlayButton()
     {
-        playButton.interactable = true;
+        playButton.SetActive(true);
     }
 
     /// <summary>
@@ -113,6 +120,7 @@ public class ButtonDisabler : MonoBehaviour
     /// </summary>
     public void EndGame()
     {
+        chestButtons.SetActive(false);
         EnableDenominationButtons();
         EnablePlayButton();
         DisableChestButtons();

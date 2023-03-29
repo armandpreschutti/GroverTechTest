@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
+
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -76,6 +77,13 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void EndGame()
     {
+        // Resets all the chest to the default state.
+        chestsToSet = FindObjectsOfType<ChestHandler>();
+        foreach (ChestHandler chest in chestsToSet)
+        {
+            chest.ResetChest();
+        }
+
         // Resets the buttons to their default state.
         buttonDisabler.EndGame();
 
@@ -88,13 +96,7 @@ public class GameManager : MonoBehaviour
         // Set this chest to be a "pooper"
         isPooper = true;
 
-        // Resets all the chest to the default state.
-        chestsToSet = FindObjectsOfType<ChestHandler>();
-        foreach (ChestHandler chest in chestsToSet)
-        {
-            chest.ResetChest();
-        }
-
+       
     }
 
     // When called, this function sets the total prize for the current round.
@@ -159,7 +161,7 @@ public class GameManager : MonoBehaviour
     /// Called whenever a chest button in pressed, this function take the amount of the selected chest and distributes it to the player.
     /// </summary>
     /// <param name="chestText">The chest text to be changed</param>
-    public void DistributeChestPrize(Text chestText)
+    public void DistributeChestPrize(TextMeshPro chestText)
     {
         // Check to see if there are any empty chest remaining and that the chest is not a "pooper".
         if(chestNumber < remainingChests && chests[chestNumber] != 0)

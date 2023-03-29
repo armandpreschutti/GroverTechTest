@@ -3,13 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class LastGameHandler : MonoBehaviour
 {
     public GameManager gameManager;
 
     public float lastGamePrize;
-    public Text lastGamePrizeText;
+    public TextMeshPro lastGamePrizeText;
+    
 
     /// <summary>
     /// On start, this function sets all the needed components for gameplay to a variable.
@@ -17,6 +19,7 @@ public class LastGameHandler : MonoBehaviour
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        ResetLastPrize();
     }
 
     /// <summary>

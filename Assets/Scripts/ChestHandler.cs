@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 public class ChestHandler : MonoBehaviour
 {
     public GameManager gameManager;
     public Button thisButton;
-    public Image thisImage;
+    public SpriteRenderer thisImage;
     public Sprite closedSprite;
     public Sprite openSprite;
-    public Text thisAmount;
+    public TextMeshPro thisAmount;
+    public bool chestOpened;
 
     /// <summary>
     /// On start, this function sets all the needed components for gameplay to a variable.
@@ -19,9 +21,10 @@ public class ChestHandler : MonoBehaviour
     private void Start()
     {
         gameManager= FindObjectOfType<GameManager>();
-        thisImage = GetComponent<Image>();
+        thisImage = GetComponent<SpriteRenderer>();
         thisButton= GetComponent<Button>();
-        thisAmount = GetComponentInChildren<Text>();
+        thisAmount = GetComponentInChildren<TextMeshPro>();
+    
     }
 
     /// <summary>
@@ -33,7 +36,7 @@ public class ChestHandler : MonoBehaviour
         thisImage.sprite = openSprite;
 
         // Disable the button.
-        thisButton.interactable = false;
+        chestOpened=true;
 
         // Distribute the value of the chest.
         gameManager.DistributeChestPrize(thisAmount);
@@ -42,7 +45,7 @@ public class ChestHandler : MonoBehaviour
         if (gameManager.isPooper)
         {
             // Do a shake animation if chest is a "pooper".
-            transform.DOPunchPosition(new Vector3(40, 0, 0), .5f, 10, 1f);
+            transform.DOPunchPosition(new Vector3(4, 0, 0), .5f, 1, 1f);
 
             // Play upbeat SFX.
             gameManager.audioHandler.PlayChestCloseSFX();
@@ -67,6 +70,8 @@ public class ChestHandler : MonoBehaviour
 
         // Set the chest value text to be empty.
         thisAmount.text = "";
+
+        chestOpened=false;
     }
 
     
