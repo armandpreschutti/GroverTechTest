@@ -14,6 +14,7 @@ public class ChestHandler : MonoBehaviour
     public Sprite openSprite;
     public TextMeshPro thisAmount;
     public bool chestOpened;
+    public bool isInteractable;
 
     /// <summary>
     /// On start, this function sets all the needed components for gameplay to a variable.
@@ -22,7 +23,8 @@ public class ChestHandler : MonoBehaviour
     {
         gameManager= FindObjectOfType<GameManager>();
         thisImage = GetComponent<SpriteRenderer>();
-        thisAmount = GetComponentInChildren<TextMeshPro>();    
+        thisAmount = GetComponentInChildren<TextMeshPro>();
+        isInteractable = false;
     }
 
     public void SelectChest()
@@ -74,9 +76,12 @@ public class ChestHandler : MonoBehaviour
         // Set the chest value text to be empty.
         thisAmount.text = "";
 
-        chestOpened=false;
+        chestOpened=false;       
+    }
 
-        
+    public void SetStatus(bool isInteractable)
+    {
+
     }
 
     
