@@ -10,17 +10,9 @@ public class ButtonDisabler : MonoBehaviour
     public GameObject playButton;
     public GameObject increaseButton;
     public GameObject decreaseButton;
-    public GameObject chestButtons;
-    public GameObject chestButton1;
-    public GameObject chestButton2;
-    public GameObject chestButton3;
-    public GameObject chestButton4;
-    public GameObject chestButton5;
-    public GameObject chestButton6;
-    public GameObject chestButton7;
-    public GameObject chestButton8;
-    public GameObject chestButton9;
-
+    public GameObject[] chestButtons;
+    public Color disableColor;
+    public Color enableColor;
 
     /// <summary>
     /// On start, this function sets all the needed components for gameplay to a variable.
@@ -28,6 +20,20 @@ public class ButtonDisabler : MonoBehaviour
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+
+    }
+
+    public void DisableButton(GameObject button)
+    {
+        button.GetComponent<SpriteRenderer>().color = disableColor;
+        button.GetComponent<BoxCollider>().enabled = false;
+
+    }
+
+    public void EnableButton(GameObject button)
+    {
+        button.GetComponent<SpriteRenderer>().color = enableColor;
+        button.GetComponent<BoxCollider>().enabled = true;
     }
 
     /// <summary>
@@ -35,8 +41,8 @@ public class ButtonDisabler : MonoBehaviour
     /// </summary>
     public void DisableDenominationButtons()
     {
-        increaseButton.SetActive(false);
-        decreaseButton.SetActive(false);
+        DisableButton(increaseButton);
+        DisableButton(decreaseButton);
     }
 
     /// <summary>
@@ -44,25 +50,8 @@ public class ButtonDisabler : MonoBehaviour
     /// </summary>
     public void EnableDenominationButtons()
     {
-        increaseButton.SetActive(true); 
-        decreaseButton.SetActive(true);    
-    }
-
-    /// <summary>
-    /// When called, this function disables all chest buttons
-    /// </summary>
-
-    public void DisableChestButtons()
-    {
-        
-    }
-
-    /// <summary>
-    /// When called, this function enables all chest buttons
-    /// </summary>
-    public void EnableChestButtons()
-    {
-       
+        EnableButton(increaseButton);
+        EnableButton(decreaseButton);
     }
 
     /// <summary>
@@ -70,7 +59,7 @@ public class ButtonDisabler : MonoBehaviour
     /// </summary>
     public void DisablePlayButton()
     {
-       playButton.SetActive(false);
+       DisableButton(playButton);
     }
 
     /// <summary>
@@ -78,18 +67,16 @@ public class ButtonDisabler : MonoBehaviour
     /// </summary>
     public void EnablePlayButton()
     {
-        playButton.SetActive(true);
+        EnableButton(playButton);
     }
 
     /// <summary>
     /// This function is called at the start of every round and sets all the buttons to the appropriate state.
     /// </summary>
     public void StartGame()
-    {
-        chestButtons.SetActive(true);
+    { 
         DisableDenominationButtons();
         DisablePlayButton();        
-        EnableChestButtons();
     }
 
     /// <summary>
@@ -97,9 +84,8 @@ public class ButtonDisabler : MonoBehaviour
     /// </summary>
     public void EndGame()
     {
-        //chestButtons.SetActive(false);
         EnableDenominationButtons();
         EnablePlayButton();
-        DisableChestButtons();
     }
+
 }

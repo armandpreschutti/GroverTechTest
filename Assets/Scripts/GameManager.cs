@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public bool roundStarted;
     public float[] chests;
 
- /*   [SerializeField] private Transform chestParent;*/
+
 
     /// <summary>
     /// On start, this function sets all the needed components for gameplay to a variable.
@@ -42,10 +42,6 @@ public class GameManager : MonoBehaviour
         roundStarted = false;
         isPooper= false;
 
-       /* foreach(Transform chestObj in chestParent)
-        {
-            
-        }*/
     }
 
     public void PreGame()
