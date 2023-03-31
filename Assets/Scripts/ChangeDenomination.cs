@@ -38,21 +38,7 @@ public class ChangeDenomination : MonoBehaviour
         {
             return;
         }
-        /*if(currentDenomination == .25f)
-        {
-            currentDenomination = .5f;
-            UpdateDenominationText();
-        }
-        else if (currentDenomination == .5f)
-        {
-            currentDenomination = 1f;
-            UpdateDenominationText();
-        }
-        else if (currentDenomination == 1f)
-        {
-            currentDenomination = 5f;
-            UpdateDenominationText();
-        }*/
+
     }
 
     /// <summary>
@@ -66,22 +52,7 @@ public class ChangeDenomination : MonoBehaviour
             currentDenomination = denominations[currentIndex];
             UpdateDenominationText();
         }
-       
-        /*if (currentDenomination == .5f)
-        {
-            currentDenomination = .25f;
-            UpdateDenominationText();
-        }
-        else if (currentDenomination == 1f)
-        {
-            currentDenomination = .5f;
-            UpdateDenominationText();
-        }
-        else if (currentDenomination == 5f)
-        {
-            currentDenomination = 1f;
-            UpdateDenominationText();
-        }*/
+      
     }
 
     /// <summary>

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class ButtonDisabler : MonoBehaviour
 {
     public GameManager gameManager;
-
     public GameObject playButton;
     public GameObject increaseButton;
     public GameObject decreaseButton;
@@ -22,6 +21,7 @@ public class ButtonDisabler : MonoBehaviour
     public GameObject chestButton8;
     public GameObject chestButton9;
 
+
     /// <summary>
     /// On start, this function sets all the needed components for gameplay to a variable.
     /// </summary>
@@ -35,9 +35,6 @@ public class ButtonDisabler : MonoBehaviour
     /// </summary>
     public void DisableDenominationButtons()
     {
-       /* increaseButton.interactable= false;
-        decreaseButton.interactable= false; */
-
         increaseButton.SetActive(false);
         decreaseButton.SetActive(false);
     }
@@ -47,8 +44,6 @@ public class ButtonDisabler : MonoBehaviour
     /// </summary>
     public void EnableDenominationButtons()
     {
-       /* increaseButton.interactable= true;
-        decreaseButton.interactable= true;*/
         increaseButton.SetActive(true); 
         decreaseButton.SetActive(true);    
     }
@@ -59,16 +54,7 @@ public class ButtonDisabler : MonoBehaviour
 
     public void DisableChestButtons()
     {
-        /*chestButton1.interactable= false;
-        chestButton2.interactable= false;
-        chestButton3.interactable= false;
-        chestButton4.interactable= false;
-        chestButton5.interactable= false;
-        chestButton6.interactable= false;
-        chestButton7.interactable= false;
-        chestButton8.interactable= false;
-        chestButton9.interactable= false;*/
-
+        
     }
 
     /// <summary>
@@ -76,15 +62,7 @@ public class ButtonDisabler : MonoBehaviour
     /// </summary>
     public void EnableChestButtons()
     {
-       /* chestButton1.interactable= true;
-        chestButton2.interactable= true;
-        chestButton3.interactable= true;
-        chestButton4.interactable= true;
-        chestButton5.interactable= true;
-        chestButton6.interactable= true;
-        chestButton7.interactable= true;
-        chestButton8.interactable= true;
-        chestButton9.interactable= true;*/
+       
     }
 
     /// <summary>
@@ -92,7 +70,6 @@ public class ButtonDisabler : MonoBehaviour
     /// </summary>
     public void DisablePlayButton()
     {
-       /* playButton.interactable = false;*/
        playButton.SetActive(false);
     }
 
@@ -107,7 +84,7 @@ public class ButtonDisabler : MonoBehaviour
     /// <summary>
     /// This function is called at the start of every round and sets all the buttons to the appropriate state.
     /// </summary>
-    public void PlayGame()
+    public void StartGame()
     {
         chestButtons.SetActive(true);
         DisableDenominationButtons();
@@ -120,7 +97,7 @@ public class ButtonDisabler : MonoBehaviour
     /// </summary>
     public void EndGame()
     {
-        chestButtons.SetActive(false);
+        //chestButtons.SetActive(false);
         EnableDenominationButtons();
         EnablePlayButton();
         DisableChestButtons();

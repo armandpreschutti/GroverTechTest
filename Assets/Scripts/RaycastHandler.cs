@@ -13,51 +13,49 @@ public class RaycastHandler : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
-      
+
         if (Input.GetMouseButtonDown(0))
         {
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
             {
                 if (hit.collider.gameObject.CompareTag("PlayButton"))
                 {
-                    if (Input.GetButton("Fire1"))
-                    {
-                        gameManager.PlayGame();
-                    }
+                    gameManager.StartGame();
 
                 }
                 else if (hit.collider.gameObject.CompareTag("AddDenominationButton"))
                 {
-                    if (Input.GetButton("Fire1"))
-                    {
-                        gameManager.changeDenomination.IncreaseDenomination();
-                    }
-
+                    gameManager.changeDenomination.IncreaseDenomination();
                 }
                 else if (hit.collider.gameObject.CompareTag("SubtractDenominationButton"))
                 {
-                    if (Input.GetButton("Fire1"))
-                    {
-                        gameManager.changeDenomination.DecreaseDenomination();
-                    }
+                    gameManager.changeDenomination.DecreaseDenomination();
 
                 }
                 else if (hit.collider.gameObject.CompareTag("ChestButton"))
                 {
-                    if (Input.GetButton("Fire1"))
+                    if (!hit.collider.gameObject.GetComponent<ChestHandler>().chestOpened && !gameManager.isPooper)
                     {
-                        Debug.Log("Success");
-                        if (!hit.collider.gameObject.GetComponent<ChestHandler>().chestOpened)
-                        {
-                            hit.collider.gameObject.GetComponent<ChestHandler>().OpenChest();
-                        }
-                        else
-                        {
-                            return;
-                        }
-                        
+                        hit.collider.gameObject.GetComponent<ChestHandler>().SelectChest();
                     }
+                }
+            }
+        }
 
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
+            {
+                if (hit.collider.gameObject.CompareTag("ChestButton") && !gameManager.isPooper && gameManager.roundStarted)
+                {
+                    if (!hit.collider.gameObject.GetComponent<ChestHandler>().chestOpened)
+                    {
+                        hit.collider.gameObject.GetComponent<ChestHandler>().OpenChest();
+                    }
+                }
+                else
+                {
+                    hit.collider.gameObject.GetComponent<ChestHandler>().ResetChest();
                 }
             }
 

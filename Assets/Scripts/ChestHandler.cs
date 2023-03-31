@@ -8,9 +8,9 @@ using TMPro;
 public class ChestHandler : MonoBehaviour
 {
     public GameManager gameManager;
-    public Button thisButton;
     public SpriteRenderer thisImage;
     public Sprite closedSprite;
+    public Sprite selectedSprite;
     public Sprite openSprite;
     public TextMeshPro thisAmount;
     public bool chestOpened;
@@ -22,9 +22,12 @@ public class ChestHandler : MonoBehaviour
     {
         gameManager= FindObjectOfType<GameManager>();
         thisImage = GetComponent<SpriteRenderer>();
-        thisButton= GetComponent<Button>();
-        thisAmount = GetComponentInChildren<TextMeshPro>();
-    
+        thisAmount = GetComponentInChildren<TextMeshPro>();    
+    }
+
+    public void SelectChest()
+    {
+        thisImage.sprite = selectedSprite;
     }
 
     /// <summary>
@@ -45,7 +48,7 @@ public class ChestHandler : MonoBehaviour
         if (gameManager.isPooper)
         {
             // Do a shake animation if chest is a "pooper".
-            transform.DOPunchPosition(new Vector3(4, 0, 0), .5f, 1, 1f);
+            transform.DOPunchPosition(new Vector3(1, 0, 0), .5f, 1, 1f);
 
             // Play upbeat SFX.
             gameManager.audioHandler.PlayChestCloseSFX();
@@ -72,6 +75,8 @@ public class ChestHandler : MonoBehaviour
         thisAmount.text = "";
 
         chestOpened=false;
+
+        
     }
 
     

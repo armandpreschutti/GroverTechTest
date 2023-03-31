@@ -49,7 +49,7 @@ public class BalanceHandler : MonoBehaviour
     /// <summary>
     /// Called when the round begins.
     /// </summary>
-    public void PlayGame()
+    public void StartGame()
     {
         // Subtract the current denomination from balance.
         DecreaseBalance(gameManager.changeDenomination.currentDenomination);

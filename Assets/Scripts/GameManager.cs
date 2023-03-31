@@ -21,8 +21,10 @@ public class GameManager : MonoBehaviour
     public float remainingPrize;
     public int remainingChests;
     public bool isPooper;
+    public bool roundStarted;
     public float[] chests;
- 
+
+ /*   [SerializeField] private Transform chestParent;*/
 
     /// <summary>
     /// On start, this function sets all the needed components for gameplay to a variable.
@@ -35,15 +37,29 @@ public class GameManager : MonoBehaviour
         lastGameHandler= GetComponent<LastGameHandler>();
         multiplierHandler= GetComponent<MultiplierHandler>();
         audioHandler= GetComponent<AudioHandler>();
+        chestsToSet = FindObjectsOfType<ChestHandler>();
+
+        roundStarted = false;
+        isPooper= false;
+
+       /* foreach(Transform chestObj in chestParent)
+        {
+            
+        }*/
+    }
+
+    public void PreGame()
+    {
+
     }
 
     /// <summary>
     /// When called, this function starts the bonus round.
     /// </summary>
-    public void PlayGame()
+    public void StartGame()
     {
         // Checks to see if there is enough money to play. If not, the game will not start.
-        if(balanceHandler.currentBalance <= 0 || changeDenomination.currentDenomination > balanceHandler.currentBalance)
+        if (balanceHandler.currentBalance <= 0 || changeDenomination.currentDenomination > balanceHandler.currentBalance)
         {
             // Play downbeat SFX.
             audioHandler.PlayChestCloseSFX();
@@ -57,10 +73,10 @@ public class GameManager : MonoBehaviour
         isPooper = false;
 
         // Sets the balance for round
-        balanceHandler.PlayGame();
-        
+        balanceHandler.StartGame();
+
         // Sets the buttons state for the round.
-        buttonDisabler.PlayGame();
+        buttonDisabler.StartGame();
 
         // Resets the last round prize to 0 
         lastGameHandler.ResetLastPrize();
@@ -69,21 +85,23 @@ public class GameManager : MonoBehaviour
         SetRoundPrize();
 
         // Sets the prize amount of each chest.
-        SetChests();
+        SetChestValues();
+
+        // Resets all the chest to the default state.
+        
+        foreach (ChestHandler chest in chestsToSet)
+        {
+            chest.ResetChest();
+        }
+
+        roundStarted = true;
     }
 
     /// <summary>
     /// When called, this function ends the bonus round.
     /// </summary>
     public void EndGame()
-    {
-        // Resets all the chest to the default state.
-        chestsToSet = FindObjectsOfType<ChestHandler>();
-        foreach (ChestHandler chest in chestsToSet)
-        {
-            chest.ResetChest();
-        }
-
+    { 
         // Resets the buttons to their default state.
         buttonDisabler.EndGame();
 
@@ -96,7 +114,12 @@ public class GameManager : MonoBehaviour
         // Set this chest to be a "pooper"
         isPooper = true;
 
-       
+        roundStarted = false;
+    }
+
+    public void PostGame()
+    {
+
     }
 
     // When called, this function sets the total prize for the current round.
@@ -112,7 +135,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// When called, this function sets the value of each chest for the round.
     /// </summary>
-    public void SetChests()
+    public void SetChestValues()
     {
         // Set the remaining amount of prize to be distributed by dividing the total prize by .05.
         remainingPrize = totalPrize/.05f;
@@ -150,7 +173,7 @@ public class GameManager : MonoBehaviour
                         chests[i] = chestAmount * .05f;
                         
                         // subtract the the value of the chest from the remaining prize amount.
-                        remainingPrize = remainingPrize - chestAmount;
+                        remainingPrize -=  chestAmount;
                     }
                 }
             }
@@ -166,6 +189,8 @@ public class GameManager : MonoBehaviour
         // Check to see if there are any empty chest remaining and that the chest is not a "pooper".
         if(chestNumber < remainingChests && chests[chestNumber] != 0)
         {
+            chestText.color = Color.white;
+
             // Set the chest value text to the value of the chest.
             chestText.text = chests[chestNumber].ToString("C");
 
@@ -178,8 +203,14 @@ public class GameManager : MonoBehaviour
 
         else
         {
-            // End this round.
-            EndGame();          
+
+            // Set the chest value text to the value of the chest.
+            chestText.text = "LOSER";
+
+            chestText.color = Color.red;
+
+            EndGame();       
+            
         }
     }
     
