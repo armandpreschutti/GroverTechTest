@@ -8,7 +8,16 @@ public class AudioHandler : MonoBehaviour
     public AudioClip openChestSFX;
     public AudioClip closeChestSFX;
     public AudioClip startGameSFX;
-    public AudioSource audioSource;
+
+    private AudioSource audioSource;
+
+    /// <summary>
+    /// On start, this function sets all the needed components for gameplay to a variable.
+    /// </summary>
+    private void Start()
+    {
+        audioSource = GameObject.Find("SFX").GetComponent<AudioSource>();
+    }
 
     /// <summary>
     /// When called, this function plays an upbeat SFX.

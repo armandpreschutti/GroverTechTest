@@ -1,20 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
 
 public class ChestHandler : MonoBehaviour
 {
-    public GameManager gameManager;
-    public SpriteRenderer thisImage;
+    private TextMeshPro thisAmount;
+    private GameManager gameManager;
+    private SpriteRenderer thisImage;
+    private GameObject prizeDestination;
+
+    public GameObject prizeItem;
     public Sprite closedSprite;
     public Sprite selectedSprite;
     public Sprite openSprite;
-    public TextMeshPro thisAmount;
     public bool chestOpened;
-    public bool isInteractable;
 
     /// <summary>
     /// On start, this function sets all the needed components for gameplay to a variable.
@@ -24,9 +25,13 @@ public class ChestHandler : MonoBehaviour
         gameManager= FindObjectOfType<GameManager>();
         thisImage = GetComponent<SpriteRenderer>();
         thisAmount = GetComponentInChildren<TextMeshPro>();
-        isInteractable = false;
+        prizeDestination = GameObject.Find("PrizeDestination");
+        Debug.Log(prizeDestination.transform.position);
     }
-
+    
+    /// <summary>
+    /// When called, this function shows a slightly open chest to let the player "peak" inside.
+    /// </summary>
     public void SelectChest()
     {
         thisImage.sprite = selectedSprite;
@@ -40,7 +45,7 @@ public class ChestHandler : MonoBehaviour
         // Set the chest sprite to be in an open state.
         thisImage.sprite = openSprite;
 
-        // Disable the button.
+        // Set chest state to opened.
         chestOpened=true;
 
         // Distribute the value of the chest.
@@ -57,13 +62,21 @@ public class ChestHandler : MonoBehaviour
 
             // Play upbeat SFX.
             gameManager.audioHandler.PlayChestCloseSFX();
+            
         }
         else
         {
-            
-
             // Play downbeat SFX.
             gameManager.audioHandler.PlayChestOpenSFX();
+
+            // Create prize.
+            GameObject prize = Instantiate(prizeItem, transform.position, Quaternion.identity);
+
+            // Deliver prize. 
+            prize.transform.DOMove(prizeDestination.transform.position, .5f);
+
+            //Destory prize.
+            Destroy(prize, .6f);
         }
     }
 
@@ -78,13 +91,15 @@ public class ChestHandler : MonoBehaviour
         // Set the chest value text to be empty.
         thisAmount.text = "";
 
+        // Set chest state to closed.
         chestOpened=false;       
     }
 
-    public void SetStatus(bool isInteractable)
+    /// <summary>
+    /// When called, this function scales the chests to make them appear to be emerging from the sand.
+    /// </summary>
+    public void ShowChest()
     {
-
+        transform.DOScale(.75f, .1f);
     }
-
-    
 }

@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.LowLevel;
 using UnityEngine.UI;
 
 
 public class ButtonDisabler : MonoBehaviour
 {
-    public GameManager gameManager;
-    public GameObject playButton;
-    public GameObject increaseButton;
-    public GameObject decreaseButton;
+    private GameManager gameManager;
+    private GameObject playButton;
+    private GameObject increaseButton;
+    private GameObject decreaseButton;
+
     public GameObject[] chestButtons;
     public Color disableColor;
     public Color enableColor;
@@ -20,7 +22,9 @@ public class ButtonDisabler : MonoBehaviour
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
-
+        increaseButton = GameObject.FindGameObjectWithTag("AddDenominationButton");
+        decreaseButton = GameObject.FindGameObjectWithTag("SubtractDenominationButton");
+        playButton = GameObject.FindGameObjectWithTag("PlayButton");
     }
 
     public void DisableButton(GameObject button)

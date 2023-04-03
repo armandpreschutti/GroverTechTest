@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -15,7 +14,7 @@ public class GameManager : MonoBehaviour
     public AudioHandler audioHandler;
     public ChestHandler[] chestsToSet;
 
-    public int chestNumber;
+    private int chestNumber;
     public int chestAmount;
     public float totalPrize;
     public float remainingPrize;
@@ -41,12 +40,6 @@ public class GameManager : MonoBehaviour
 
         roundStarted = false;
         isPooper= false;
-
-    }
-
-    public void PreGame()
-    {
-
     }
 
     /// <summary>
@@ -84,13 +77,15 @@ public class GameManager : MonoBehaviour
         SetChestValues();
 
         // Resets all the chest to the default state.
-        
         foreach (ChestHandler chest in chestsToSet)
         {
             chest.ResetChest();
+            chest.ShowChest();
         }
 
+        // Indicates the round has started.
         roundStarted = true;
+
     }
 
     /// <summary>
@@ -110,21 +105,19 @@ public class GameManager : MonoBehaviour
         // Set this chest to be a "pooper"
         isPooper = true;
 
+        // Indicates the round has ended.
         roundStarted = false;
     }
 
-    public void PostGame()
-    {
-
-    }
-
-    // When called, this function sets the total prize for the current round.
+    /// <summary>
+    /// When called, this function sets the total prize for the current round.
+    /// </summary>
     public void SetRoundPrize()
     {
-        // Sets the multiplier for the round.
+        // Set the multiplier for the round.
         multiplierHandler.PickMultiplier();
 
-        // Sets the prize for this round by multiplying the multiplier by the current denomination.
+        // Set the prize for this round by multiplying the multiplier by the current denomination.
         totalPrize = multiplierHandler.currentMultiplier * changeDenomination.currentDenomination;
     }
 
@@ -185,6 +178,7 @@ public class GameManager : MonoBehaviour
         // Check to see if there are any empty chest remaining and that the chest is not a "pooper".
         if(chestNumber < remainingChests && chests[chestNumber] != 0)
         {
+            // Set the win amount text to white.
             chestText.color = Color.white;
 
             // Set the chest value text to the value of the chest.
@@ -201,10 +195,12 @@ public class GameManager : MonoBehaviour
         {
 
             // Set the chest value text to the value of the chest.
-            chestText.text = "LOSER";
+            chestText.text = "$0.00";
 
+            // Set the win amount text to red.
             chestText.color = Color.red;
 
+            // End this round.
             EndGame();       
             
         }

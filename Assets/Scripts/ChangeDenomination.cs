@@ -5,11 +5,10 @@ using TMPro;
 
 public class ChangeDenomination : MonoBehaviour
 {
-    public bool useQuarter;
-    public bool useHalf;
-    public TextMeshPro currentDenominationText;  
-    public float currentDenomination = 0.25f;
-    public int currentIndex;
+    private int currentIndex;
+
+    public TextMeshPro currentDenominationText;
+    public float currentDenomination;
     public int[] denominations;
 
 

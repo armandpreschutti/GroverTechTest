@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class MultiplierHandler : MonoBehaviour
 {
-    public GameManager gameManager;
+    private GameManager gameManager;
+    private int[] multiplierOdds= new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3};
+    private int[] commonMultiplierValues = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    private int[] uncommonMultiplierValues = new int[] {12, 16, 24, 32, 48, 64};
+    private int[] rareMultiplierValues = new int[] { 100, 200, 300, 400, 500 };
+    private int tierIndex;
+    private int multiplierIndex;
+    private int commonIndex;
+    private int uncommonIndex;
+    private int rareIndex;
 
-    public int[] multiplierOdds= new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3};
-    public int[] commonMultiplierValues = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    public int[] uncommonMultiplierValues = new int[] {12, 16, 24, 32, 48, 64};
-    public int[] rareMultiplierValues = new int[] {100, 200, 300, 400, 500};
     public int currentMultiplier;
-    public int tierIndex;
-    public int multiplierIndex;
-    public int commonIndex;
-    public int uncommonIndex;
-    public int rareIndex;
 
     /// <summary>
     /// On start, this function sets all the needed components for gameplay to a variable.

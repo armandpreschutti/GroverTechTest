@@ -2,12 +2,11 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class LastGameHandler : MonoBehaviour
 {
-    public GameManager gameManager;
+    private GameManager gameManager;
 
     public float lastGamePrize;
     public TextMeshPro lastGamePrizeText;
