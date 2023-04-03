@@ -1,3 +1,0 @@
-Allow for any amount of denominations, you can assume they will be whole number values aside from the 25c and 50c denominations. This should also be editable in the inspector without the need to update a script if denominations are added/removed
-Reveal a pooper instead of just ending the game immediately. The player should still open a chest to see what's inside, even when the chest will be the pooper
-Update all buttons in your game to use raycasts and planes instead of using the canvas and buil
